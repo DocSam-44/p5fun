@@ -344,7 +344,7 @@ let particleSystem;
 let img;
 
 function preload() {
-  img = loadImage("yourImage.png");
+  img = loadImage("st,small,507x507-pad,600x600,f8f8f8.u2.jpg");
 }
 
 function setup() {
@@ -352,29 +352,26 @@ function setup() {
   particleSystem = new ParticleSystem();
 }
 
+// stations
 let stations = [
   { x: 200, y: 200 },
   { x: 350, y: 200 }
 ];
 
 function draw() {
-  background("royalblue");
+  background("black");
 
-  // permanent red circles
+  // ===== PERMANENT RED CIRCLES =====
   fill("red");
   for (let s of stations) {
     circle(s.x, s.y, 100);
   }
 
-  // image 300px below circles
-  for (let s of stations) {
-    image(img, s.x - 25, s.y + 300, 50, 50);
-  }
-
+  // ===== GREEN CIRCLES + PARTICLES =====
   if (mouseIsPressed) {
     for (let s of stations) {
 
-      fill("green");
+      fill("black");
       circle(s.x, s.y, 30);
 
       particleSystem.origin = createVector(s.x, s.y);
@@ -386,4 +383,65 @@ function draw() {
   }
 
   particleSystem.run();
+
+  // ===== SINGLE IMAGE CENTERED =====
+  if (img) {
+    let centerX = (stations[0].x + stations[1].x) / 2;
+    let imgY = stations[0].y + 80;
+
+    image(img, centerX - 140, imgY, 300, 270);
+  }
 }
+
+// ================= PARTICLE SYSTEM =================
+
+class ParticleSystem {
+  constructor() {
+    this.particles = [];
+    this.origin = createVector(200, 200);
+  }
+
+  addParticle() {
+    this.particles.push(new Particle(this.origin.copy()));
+  }
+
+  run() {
+    for (let i = this.particles.length - 1; i >= 0; i--) {
+      let p = this.particles[i];
+      p.update();
+      p.display();
+
+      if (p.isDead()) {
+        this.particles.splice(i, 1);
+      }
+    }
+  }
+}
+
+class Particle {
+  constructor(position) {
+    this.position = position;
+
+    this.velocity = createVector(random(-1, 1), random(-3, -1));
+    this.acceleration = createVector(0, 0.02);
+    this.lifespan = 255;
+  }
+
+  update() {
+    this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
+    this.lifespan -= 4;
+  }
+
+  display() {
+    noStroke();
+    fill(0, 255, 100, this.lifespan);
+    circle(this.position.x, this.position.y, 10);
+  }
+
+  isDead() {
+    return this.lifespan <= 0;
+  }
+}
+
+
