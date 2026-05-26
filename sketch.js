@@ -33,6 +33,7 @@ fill(yellow)
 
 */
 
+/*
 function setup() {
   createCanvas(600, 600);
 }
@@ -58,6 +59,45 @@ function draw() {
   for (i = 0; i < circles.length; i++) {
 circle(circles[i][0], circles[i][1], 50)
 
+  }
+
+  // Triangle only while key pressed
+  if (keyIsPressed) {
+    fill("yellow");
+    triangle(100, 100, 150, 200, 250, 100);
+  }
+}
+
+*/
+
+function setup() {
+  createCanvas(600, 600);
+}
+
+let circles = [];
+
+function draw() {
+  background("royalblue");
+
+  // Big red circle
+  fill("red");
+  circle(200, 200, 100);
+
+  // Small green circle while mouse pressed
+  if (mouseIsPressed) {
+    fill("green");
+    circle(200, 200, 30);
+
+    circles.push([mouseX, mouseY]);
+  } else {
+    circles = [];
+  
+    console.log(circles);
+  }
+
+  // Draw saved circles
+  for (let i = 0; i < circles.length; i++) {
+    circle(circles[i][0], circles[i][1], 50);
   }
 
   // Triangle only while key pressed
