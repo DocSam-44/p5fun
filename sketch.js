@@ -221,45 +221,63 @@ class Particle {
   }
 }
   */
-
+/*
 let particleSystem;
 
 function setup() {
   createCanvas(600, 600);
-
-  // Create particle system
   particleSystem = new ParticleSystem();
 }
 
+// stations 150px apart
+let stations = [
+  { x: 200, y: 200 },
+  { x: 350, y: 200 }
+];
+
 function draw() {
-  background("royalblue");
+  background("#c59563");
 
-  // Big red circle
-  fill("red");
-  circle(200, 200, 100);
-
-  // Small green circle while mouse pressed
-  if (mouseIsPressed) {
-    fill("green");
-    circle(200, 200, 30);
-
-    // Move particle emitter to green circle
-    particleSystem.origin = createVector(200, 200);
-
-    // Add particles
-    for (let i = 0; i < 3; i++) {
-      particleSystem.addParticle();
-    }
+  // ===== PERMANENT RED CIRCLES =====
+  fill("white");
+  for (let s of stations) {
+    circle(s.x, s.y, 100);
   }
 
-  // Run particles
+  // ===== GREEN + PARTICLES ONLY WHILE MOUSE PRESSED =====
+  if (mouseIsPressed) {
+
+    for (let s of stations) {
+
+      // green circle
+      fill("blue");
+      circle(s.x, s.y, 30);
+
+      // particles from green circle
+      particleSystem.origin = createVector(s.x, s.y);
+
+      for (let i = 0; i < 3; i++) {
+        particleSystem.addParticle();
+      }
+    }
+ image(img, 200, 500);
+image(img, 350, 500);
+  }
+
+  let img;
+
+function preload() {
+  img = loadImage(".vscode/st,small,507x507-pad,600x600,f8f8f8.u2.jpg");
+}
+
   particleSystem.run();
 
-  // Triangle only while key pressed
   if (keyIsPressed) {
     fill("yellow");
-    triangle(100, 100, 150, 200, 250, 100);
+    triangle(150, 100, 150, 200, 250, 100);
   }
+
+  
 }
 
 // ================= PARTICLE SYSTEM =================
@@ -277,7 +295,6 @@ class ParticleSystem {
   run() {
     for (let i = this.particles.length - 1; i >= 0; i--) {
       let p = this.particles[i];
-
       p.update();
       p.display();
 
@@ -287,6 +304,8 @@ class ParticleSystem {
     }
   }
 }
+
+// ================= PARTICLE =================
 
 class Particle {
   constructor(position) {
@@ -298,14 +317,12 @@ class Particle {
     );
 
     this.acceleration = createVector(0, 0.02);
-
     this.lifespan = 255;
   }
 
   update() {
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
-
     this.lifespan -= 4;
   }
 
@@ -318,4 +335,55 @@ class Particle {
   isDead() {
     return this.lifespan <= 0;
   }
+}
+
+
+*/
+
+let particleSystem;
+let img;
+
+function preload() {
+  img = loadImage("yourImage.png");
+}
+
+function setup() {
+  createCanvas(600, 600);
+  particleSystem = new ParticleSystem();
+}
+
+let stations = [
+  { x: 200, y: 200 },
+  { x: 350, y: 200 }
+];
+
+function draw() {
+  background("royalblue");
+
+  // permanent red circles
+  fill("red");
+  for (let s of stations) {
+    circle(s.x, s.y, 100);
+  }
+
+  // image 300px below circles
+  for (let s of stations) {
+    image(img, s.x - 25, s.y + 300, 50, 50);
+  }
+
+  if (mouseIsPressed) {
+    for (let s of stations) {
+
+      fill("green");
+      circle(s.x, s.y, 30);
+
+      particleSystem.origin = createVector(s.x, s.y);
+
+      for (let i = 0; i < 3; i++) {
+        particleSystem.addParticle();
+      }
+    }
+  }
+
+  particleSystem.run();
 }
