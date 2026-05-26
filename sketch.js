@@ -55,7 +55,10 @@ function draw() {
     console.log(circles);
   }
 
-  for(i=0; i< circles.length; i++)
+  for (i = 0; i < circles.length; i++) {
+circle(circles[i][0], circles[i][1], 50)
+
+  }
 
   // Triangle only while key pressed
   if (keyIsPressed) {
