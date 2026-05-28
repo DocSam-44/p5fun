@@ -201,4 +201,140 @@ function draw() {
 // }
 
 
-// just realized i was editing the wrong file so the below code is new and what i tried to do here is complete in the remix
+// just realized i was editing the wrong file so the below code is new and what i tried to do here is complete in the remix to take the ideas in sketch1 and what i had intended for here
+
+// * I messed with this for the challenge in class and put it here because I was able to use it to influence my sketch one to create what become the remix
+/*
+function setup() {
+  createCanvas(600, 400);
+  rectMode(CENTER);
+}
+
+function draw() {
+  background(90);
+
+  // -------------------------
+  // ELEMENT 1: oscillating circle
+  // self-generating value: sin()
+  // -------------------------
+  
+  let circleX = map(
+    sin(frameCount * 0.03), // oscillates -1 to 1
+    -1,
+    1,
+    50,
+    width - 50
+  );
+
+  fill(100, 200, 255);
+  noStroke();
+  circle(circleX, 100, 60);
+
+  // -------------------------
+  // ELEMENT 2: noisy square
+  // self-generating value: noise()
+  // -------------------------
+
+  let squareSize = map(
+    noise(frameCount * 0.02), // smooth random values
+    0,
+    1,
+    40,
+    180
+  );
+
+  // RULE 4:
+  // map circle position to square color
+  let squareColor = map(circleX, 50, width - 50, 50, 255);
+
+  fill(squareColor, 50, 255);
+
+  rect(width/1.7, height / 1.5, squareSize, squareSize);
+
+  // -------------------------
+  // ELEMENT 3: moving line
+  // self-generating value: frameCount
+  // -------------------------
+
+  let lineY = frameCount % height;
+
+  // RULE 5:
+  // line only appears if BOTH conditions are true:
+  // 1. circle is on the right half
+  // 2. square is bigger than 100
+
+  if (circleX > width / 7 && squareSize > 90) {
+    stroke(355);
+    strokeWeight(7);
+    line(0, lineY, width, lineY);
+  }
+}
+
+*/
+
+
+let circleColor;
+
+function setup() {
+  createCanvas(600, 400);
+  rectMode(CENTER);
+
+  // default circle colour
+  circleColor = color(100, 200, 255);
+}
+
+function draw() {
+  background(90);
+
+  // -------------------------
+  // ELEMENT 1: oscillating circle
+  // -------------------------
+  
+  let circleX = map(
+    sin(frameCount * 0.03),
+    -1,
+    1,
+    50,
+    width - 50
+  );
+
+  fill(circleColor);
+  noStroke();
+  circle(circleX, 100, 60);
+
+  // -------------------------
+  // ELEMENT 2: noisy square
+  // -------------------------
+
+  let squareSize = map(
+    noise(frameCount * 0.02),
+    0,
+    1,
+    40,
+    180
+  );
+
+  let squareColor = map(circleX, 50, width - 50, 50, 255);
+
+  fill(squareColor, 50, 255);
+  rect(width / 1.7, height / 1.5, squareSize, squareSize);
+
+  // -------------------------
+  // ELEMENT 3: moving line
+  // -------------------------
+
+  let lineY = frameCount % height;
+
+  if (circleX > width / 7 && squareSize > 90) {
+    stroke(355);
+    strokeWeight(7);
+    line(0, lineY, width, lineY);
+  }
+}
+
+// -------------------------
+// KEY PRESS FUNCTION
+// -------------------------
+function keyPressed() {
+  circleColor = color(0, 255, 0); // green
+}
