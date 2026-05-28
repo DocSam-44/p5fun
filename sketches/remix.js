@@ -537,6 +537,8 @@ class Particle {
 */
 // ! nothing is working so i went back to the original code above at the top
 
+// *finally figured out working reset button and made it positioned at the bottom of the canvas so it wasn't overlapped with a4-remix text; code below now
+
 let img1;
 let img2;
 let particleSystem;
@@ -548,7 +550,6 @@ let stations = [
 
 let button;
 
-// replace frameCount with this
 let t = 0;
 
 function preload() {
@@ -563,7 +564,7 @@ function setup() {
   particleSystem = new ParticleSystem();
 
   button = createButton("reset sketch");
-button.position(10, height + 10);
+  button.position(10, height + 10);
   button.mousePressed(resetSketch);
 }
 
@@ -631,17 +632,16 @@ function draw() {
   line(0, lineY, width, lineY);
 }
 
-// -------------------
-// RESET BUTTON (NOW WORKS PROPERLY)
-// -------------------
+// RESET BUTTON 
+
 function resetSketch() {
   particleSystem.particles = [];
   t = 0;
 }
 
-// -------------------
+
 // PARTICLE SYSTEM
-// -------------------
+
 class ParticleSystem {
   constructor() {
     this.particles = [];
