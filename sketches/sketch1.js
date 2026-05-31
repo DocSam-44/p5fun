@@ -397,7 +397,7 @@ function draw() {
   }
 }
 
-// ================= PARTICLE SYSTEM =================
+// *this code below is the bulk of how the particles function i used from the p5js wesite is employed including the specification of their positions so that they look like they are coming out of the eyes
 
 class ParticleSystem {
   constructor() {
