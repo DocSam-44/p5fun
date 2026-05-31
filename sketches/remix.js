@@ -536,15 +536,16 @@ function setup() {
   button.position(10, height + 10);
   button.mousePressed(resetSketch);
 }
-
+// *this is also part of the code that is initially provided and ended up seeming most important because i forgot a few times to make sure my code was within this function and then my sketch would break
 function draw() {
   background(0);
 fill(133);
 textSize(16);
+// *this is one of the codes needing to make the reset button be a keypressed() function too. this adds a label to the sketch to let the user know that clicking the 'r' button will make the sketch reset
 text("Press 'R' to reset the sketch or click the button below", 12, 35);
   //  manual time
   t++;
-
+// * I used the square of fluctuating size from my sketch 2 and inputed the images over it. this leads to the bouncing look of the smiles. I also used the code below to specify the scale, center the image, and put it at the height I wanted in respect to the 'eyes'
   let imgScale = 1.6;
 
   // moving line now uses t
@@ -615,7 +616,7 @@ function keyPressed() {
   }
 }
 
-// PARTICLE SYSTEM
+// *below is the the particle system code that actually creates the appearence of the particles
 
 class ParticleSystem {
   constructor() {
@@ -639,7 +640,7 @@ class ParticleSystem {
     }
   }
 }
-
+      // This specifies the location of the particles so it looks like they are coming out of the center of the eyes
 class Particle {
   constructor(position) {
     this.position = position.copy();
