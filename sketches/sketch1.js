@@ -346,7 +346,7 @@ class Particle {
 let particleSystem;
 let img;
 
-// *
+// * below code makes sure to input the image so it is there for when the sketch starts to run
 function preload() {
   img = loadImage("st,small,507x507-pad,600x600,f8f8f8.u2.jpg");
 }
@@ -356,7 +356,7 @@ function setup() {
   particleSystem = new ParticleSystem();
 }
 
-// stations
+// *makes sure positions are maintained without having to use duplicate code to specify for each which saves time
 let stations = [
   { x: 200, y: 200 },
   { x: 350, y: 200 }
@@ -365,13 +365,13 @@ let stations = [
 function draw() {
   background("black");
 
-  // ===== PERMANENT RED CIRCLES =====
+  // *this creates the red circles which i turned into the eyes.
   fill("red");
   for (let s of stations) {
     circle(s.x, s.y, 100);
   }
 
-  // ===== GREEN CIRCLES + PARTICLES =====
+//  *the code below pastes the black pupils and the green particles that come out of them as well as specifying position
   if (mouseIsPressed) {
     for (let s of stations) {
 
@@ -388,7 +388,7 @@ function draw() {
 
   particleSystem.run();
 
-  // ===== SINGLE IMAGE CENTERED =====
+// *this was added to center the image because it was not cooperating and kept trying to stay on the far right and too low
   if (img) {
     let centerX = (stations[0].x + stations[1].x) / 2;
     let imgY = stations[0].y + 80;
