@@ -519,7 +519,7 @@ let stations = [
 let button;
 
 let t = 0;
-// *the preload function allows me to add my smile images that are stoed under the dev file
+// *the preload function allows me to add my smile images that are stored under the dev file
 // *the preload function also makes sure the images are there before the run through of the 'setch' starts. My images were not load initially so i asked ai to help me identify the reasoning and it said that they were trying to load simultaneously. It helped explain that before setup() runs, it waits for preload() to finish to stop that issue.
 function preload() {
   img1 = loadImage('dev/anime_-smile_with_-sharp_-teeth-jpg-p63eqau3yjbxnj6r.jpg');
