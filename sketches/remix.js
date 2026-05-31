@@ -520,11 +520,12 @@ let button;
 
 let t = 0;
 // *the preload function allows me to add my smile images that are stoed under the dev file
+// *the preload function also makes sure the images are there before the run through of the 'setch' starts. My images were not load initially so i asked ai to help me identify the reasoning and it said that they were trying to load simultaneously. It helped explain that before setup() runs, it waits for preload() to finish to stop that issue.
 function preload() {
   img1 = loadImage('dev/anime_-smile_with_-sharp_-teeth-jpg-p63eqau3yjbxnj6r.jpg');
   img2 = loadImage('dev/st,small,507x507-pad,600x600,f8f8f8.u2.jpg');
 }
-
+// *
 function setup() {
   createCanvas(600, 600);
   imageMode(CENTER);
@@ -602,7 +603,7 @@ text("Press 'R' to reset the sketch or click the button below", 12, 35);
   line(0, lineY, width, lineY);
 }
 
-// *
+// *below is the code for both the reset button and the key press 'r' reset
 
 function resetSketch() {
   particleSystem.particles = [];
@@ -658,7 +659,7 @@ class Particle {
     fill(0, 255, 100, this.lifespan);
     circle(this.position.x, this.position.y, 10);
   }
-
+// * this allows for the particles to disappear in the order they appeared so that they don't remain stuck on the screen. eventually their 'lifespan' expires and they vanish and either more appear if you continue to hold down the mouse or they slowly clear off the page
   isDead() {
     return this.lifespan <= 0;
   }
