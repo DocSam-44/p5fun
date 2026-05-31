@@ -315,9 +315,6 @@ function draw() {
   fill(squareColor, 50, 255);
   rect(width / 1.7, height / 1.5, squareSize, squareSize);
 
-  // -------------------------
-  // ELEMENT 3: moving line
-  // -------------------------
 
 // *the code below makes it so that is the square goes below the specified size (i.e., isn't above '90'), the line will not appear/be visiable
   let lineY = frameCount % height;
@@ -330,6 +327,7 @@ function draw() {
 }
 
 // * I added this so that I could change the colour of the circle by pressing a key on my keyboard
+// * changes colour from blue to green
 
 function keyPressed() {
   circleColor = color(0, 255, 0); // green
