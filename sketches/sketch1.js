@@ -397,7 +397,7 @@ function draw() {
   }
 }
 
-// *this code below is the bulk of how the particles function i used from the p5js wesite is employed including the specification of their positions so that they look like they are coming out of the eyes
+// *this code below is the bulk of how the particles function i used from the p5js wesite is employed including the specification of their positions so that they look like they are coming out of the eyes under clas particle
 
 class ParticleSystem {
   constructor() {
@@ -421,7 +421,7 @@ class ParticleSystem {
     }
   }
 }
-
+    // particle positioning
 class Particle {
   constructor(position) {
     this.position = position;
@@ -430,7 +430,9 @@ class Particle {
     this.acceleration = createVector(0, 0.02);
     this.lifespan = 255;
   }
+    // particle speed and rate of disappearance after time of first appearance i.e., lifespan
 
+  // *the code below is very useful for making sure the particles diappear a set amount of time after appearing so they don't get stuck as a build up on the screen. It wouldn't look as cool if they stayed
   update() {
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
