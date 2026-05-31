@@ -10,8 +10,9 @@ function draw() {
   circle(200,200,100);
     fill('green');
 // x-position, y-position, size
-
-
+*/
+// ! all the above code came with the file for the initial set up to make sure it functions properly. I copied it again below in my code I am actually using. The below that got commented out are multiple failed attempts. I ended up figuring out that the reason nothing was appearing/changing with each save is because i messed up my code changes in this file and then accidently switched files which was why none of my saves were working. I ended up having to go back to a previous commit where everything got messed up and then it was correct.
+/*
 if(mouseIsPressed){
 circle(200,200,30);
     fill('red');
