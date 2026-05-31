@@ -329,9 +329,8 @@ function draw() {
   }
 }
 
-// -------------------------
-// KEY PRESS FUNCTION
-// -------------------------
+// * I added this so that I could change the colour of the circle by pressing a key on my keyboard
+
 function keyPressed() {
   circleColor = color(0, 255, 0); // green
 }
