@@ -286,7 +286,7 @@ function setup() {
 function draw() {
   background(90);
 
-// *the below code is for the circle that moves from side to side. it also uses the sin cosine functions from the p5js page but this assignment only asks for one source
+// *the below code is for the circle that moves from side to side. it also uses the sin cosine functions from the p5js page but this assignment only asks for one source so i chose the other which felt more vital and prominant
   
   let circleX = map(
     sin(frameCount * 0.03),
