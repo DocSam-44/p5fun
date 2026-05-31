@@ -272,7 +272,7 @@ function draw() {
 
 */
 // ! since for sketch2 i needed to employ code from the p5js site i focused on using the shapes code and applied it to the challenge in class on thursday
-// 
+// ! i was very confused on how to do the challenge so i asked ai "can you exmplain what this is asking and provide an example". Once it had done so i manipulated the code to figure out how each section functioned and changed it to be what I wanted (colour, position, size, parameters for effect, added components)
 
 let circleColor;
 
