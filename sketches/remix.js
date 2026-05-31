@@ -537,7 +537,9 @@ function setup() {
 
 function draw() {
   background(0);
-
+fill(133);
+textSize(16);
+text("Press 'R' to reset the sketch or click the button below", 12, 35);
   //  manual time
   t++;
 
@@ -605,7 +607,11 @@ function resetSketch() {
   particleSystem.particles = [];
   t = 0;
 }
-
+function keyPressed() {
+  if (key === 'r' || key === 'R') {
+    resetSketch();
+  }
+}
 
 // PARTICLE SYSTEM
 
