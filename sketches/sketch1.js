@@ -438,7 +438,7 @@ class Particle {
     this.position.add(this.velocity);
     this.lifespan -= 4;
   }
-
+// * makes the particles green and uses lifespan function so that the particels fade after a set time
   display() {
     noStroke();
     fill(0, 255, 100, this.lifespan);
