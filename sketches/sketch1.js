@@ -348,6 +348,7 @@ let img;
 
 // * below code makes sure to input the image so it is there for when the sketch starts to run
 function preload() {
+  // this is the image of the creepy smile
   img = loadImage("st,small,507x507-pad,600x600,f8f8f8.u2.jpg");
 }
 
