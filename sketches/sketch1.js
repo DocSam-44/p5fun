@@ -340,10 +340,13 @@ class Particle {
 
 
 */
+// *the below code is where the actually functioning and used code begins 
+// !the comments in the remix file are very in depth and there is more overlap between it and this sketch so the comments will be more simplified
 
 let particleSystem;
 let img;
 
+// *
 function preload() {
   img = loadImage("st,small,507x507-pad,600x600,f8f8f8.u2.jpg");
 }
