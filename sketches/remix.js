@@ -549,6 +549,7 @@ text("Press 'R' to reset the sketch or click the button below", 12, 35);
   let imgScale = 1.6;
 
   // moving line now uses t
+  // *this code is meant to have the line that moves down the sketch work as a timer that resets when it reaches the bottom of the sketch
   let lineY = t % height;
 
   let squareSize = map(noise(t * 0.02), 0, 1, 120, 220);
