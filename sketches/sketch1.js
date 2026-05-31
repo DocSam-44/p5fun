@@ -444,7 +444,7 @@ class Particle {
     fill(0, 255, 100, this.lifespan);
     circle(this.position.x, this.position.y, 10);
   }
-
+// * returns the sketch's particles back to original state once lifespan value hits zero
   isDead() {
     return this.lifespan <= 0;
   }
