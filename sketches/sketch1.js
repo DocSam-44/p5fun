@@ -408,7 +408,7 @@ class ParticleSystem {
   addParticle() {
     this.particles.push(new Particle(this.origin.copy()));
   }
-
+// *this connects to the isdead() function at the end of this code to remove the 'dead' particles whose lifespan has reached zero and makes it so it isn't still running in the background by just being invisible
   run() {
     for (let i = this.particles.length - 1; i >= 0; i--) {
       let p = this.particles[i];
