@@ -275,21 +275,18 @@ function draw() {
 // ! i was very confused on how to do the challenge so i asked ai "can you exmplain what this is asking and provide an example". Once it had done so i manipulated the code to figure out how each section functioned and changed it to be what I wanted (colour, position, size, parameters for effect, added components)
 
 let circleColor;
-
+// * function setup() always sets up the canvas
 function setup() {
   createCanvas(600, 400);
   rectMode(CENTER);
-
-  // default circle colour
+// *circle colour
   circleColor = color(100, 200, 255);
 }
 
 function draw() {
   background(90);
 
-  // -------------------------
-  // ELEMENT 1: oscillating circle
-  // -------------------------
+// *the below code is for the circle that moves from side to side. it also uses the sin cosine functions from the p5js page but this assignment only asks for one source
   
   let circleX = map(
     sin(frameCount * 0.03),
