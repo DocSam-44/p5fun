@@ -280,7 +280,7 @@ function setup() {
   createCanvas(600, 400);
   rectMode(CENTER);
 // *circle colour
-  circleColor = color(100, 200, 255);
+  circleColor = color(100, 200, 225);
 }
 
 function draw() {
