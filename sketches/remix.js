@@ -525,13 +525,13 @@ function preload() {
   img1 = loadImage('dev/anime_-smile_with_-sharp_-teeth-jpg-p63eqau3yjbxnj6r.jpg');
   img2 = loadImage('dev/st,small,507x507-pad,600x600,f8f8f8.u2.jpg');
 }
-// *
+// *this is part of the initial provided code to make sure the code presents properly by creating the canvas
 function setup() {
   createCanvas(600, 600);
   imageMode(CENTER);
-
+// *this is when i start to input the particles from the p5js website code from sketch1.js
   particleSystem = new ParticleSystem();
-
+// *this is where i tried added the reset button (which ended up working) before i realized that the rubric specified the keypressed function. I did end up needing google and ai to help me figure out to encorporate this into my code because when i initially used the code from google, the button appeared but it didn't so anything. I asked ai what the problem is and it told me i put in the wrong spot (not under draw() like it should be)
   button = createButton("reset sketch");
   button.position(10, height + 10);
   button.mousePressed(resetSketch);
