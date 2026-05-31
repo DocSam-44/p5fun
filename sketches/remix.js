@@ -502,9 +502,10 @@
 //   }
 // }
 */
-// ! nothing is working so i went back to the original code above at the top
+// * nothing is working so i went back to the original code above at the top
 
-// *finally figured out working reset button and made it positioned at the bottom of the canvas so it wasn't overlapped with a4-remix text; code below now
+// !finally figured out working reset button and made it positioned at the bottom of the canvas so it wasn't overlapped with a4-remix text; code below now
+
 
 let img1;
 let img2;
@@ -518,7 +519,7 @@ let stations = [
 let button;
 
 let t = 0;
-
+// *the preload function allows me to add my smile images that are stoed under the dev file
 function preload() {
   img1 = loadImage('dev/anime_-smile_with_-sharp_-teeth-jpg-p63eqau3yjbxnj6r.jpg');
   img2 = loadImage('dev/st,small,507x507-pad,600x600,f8f8f8.u2.jpg');
@@ -577,14 +578,14 @@ text("Press 'R' to reset the sketch or click the button below", 12, 35);
   for (let s of stations) {
     circle(s.x, s.y, 100);
   }
-
+// *this makes it so that when the mouse is pressed it makes the black pupils of the eyes appear
   if (mouseIsPressed) {
     fill("black");
     noStroke();
     for (let s of stations) {
       circle(s.x, s.y, 30);
     }
-
+// *this makes it so that when the mouse is pressed it makes the black pupils of the eyes have green particles appear out of them
     for (let s of stations) {
       particleSystem.origin = createVector(s.x, s.y);
 
@@ -601,7 +602,7 @@ text("Press 'R' to reset the sketch or click the button below", 12, 35);
   line(0, lineY, width, lineY);
 }
 
-// RESET BUTTON 
+// *
 
 function resetSketch() {
   particleSystem.particles = [];
