@@ -300,9 +300,7 @@ function draw() {
   noStroke();
   circle(circleX, 100, 60);
 
-  // -------------------------
-  // ELEMENT 2: noisy square
-  // -------------------------
+// *this used 'noise' to make the square fluctuate in size
 
   let squareSize = map(
     noise(frameCount * 0.02),
@@ -311,7 +309,7 @@ function draw() {
     40,
     180
   );
-
+// *this creates a link so that the line is affected by the sixe of the square
   let squareColor = map(circleX, 50, width - 50, 50, 255);
 
   fill(squareColor, 50, 255);
@@ -321,6 +319,7 @@ function draw() {
   // ELEMENT 3: moving line
   // -------------------------
 
+// *the code below makes it so that is the square goes below the specified size (i.e., isn't above '90'), the line will not appear/be visiable
   let lineY = frameCount % height;
 
   if (circleX > width / 7 && squareSize > 90) {
